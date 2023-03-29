@@ -7,10 +7,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@DiscriminatorValue("amino")
 @Getter
 @Setter
-@DiscriminatorValue("snack") // 구분짓는 칼럼(속성)값
-public class Snack extends Item {
-    private int option;
+public class Amino extends Item{
+    private int weight; // 단위 : g 
     private String tasteCode;
 }

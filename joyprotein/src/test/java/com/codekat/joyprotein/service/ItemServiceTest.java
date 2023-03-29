@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.codekat.joyprotein.domain.items.Item;
 import com.codekat.joyprotein.domain.items.Protein;
+import com.codekat.joyprotein.domain.items.Snack;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -76,6 +78,20 @@ public class ItemServiceTest {
         assertEquals(protein, item);
         assertEquals(2500, ((Protein) item).getWeight());
         assertEquals("111111", ((Protein) item).getTasteCode());
+    }
+
+    @Test
+    void 스낵_옵션선택후_가져오기(){
+        // Snack protein = createProtein("test protein");
+        // itemService.saveItem(protein);
+
+        // //when
+        // Item item = itemService.takeProtein(protein.getProduct().getId(), protein.getWeight(), protein.getTasteCode());
+
+        // //then
+        // assertEquals(protein, item);
+        // assertEquals(2500, ((Protein) item).getWeight());
+        // assertEquals("111111", ((Protein) item).getTasteCode());
     }
 
     // @Test

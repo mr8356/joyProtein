@@ -1,5 +1,4 @@
 package com.codekat.joyprotein.controller;
-import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,9 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import com.codekat.joyprotein.domain.Member;
-import com.codekat.joyprotein.domain.items.Item;
-import com.codekat.joyprotein.domain.items.Product;
-import com.codekat.joyprotein.service.ItemService;
 import com.codekat.joyprotein.service.MemberService;
 
 
@@ -22,7 +18,6 @@ import com.codekat.joyprotein.service.MemberService;
 @SessionAttributes("memberId")
 public class HomeController {
     @Autowired private MemberService memberService;
-    @Autowired private ItemService itemService;
 
 
     @GetMapping("/")

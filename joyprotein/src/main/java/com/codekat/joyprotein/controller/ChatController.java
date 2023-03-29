@@ -37,7 +37,7 @@ public class ChatController {
 
     @PostMapping(value="/chat")
     public String responceMsg(@RequestParam("message") String text, Model model) throws IOException {
-        String content = "당신은 동현프로틴이라는 프로틴 회사의 어시스턴트 조비스입니다. 소개도 그렇게 하세요. 답변도 프로틴 주제로만 간결하고 짧게 답합니다. 단백질 보충제에 대해서 잘 모르는 사람들의 상담을 받아주고, 무조건 우리 동현프로틴 회사의 제품에서만 추천해야합니다. 다음은 우리 회사 제품들 입니다.";
+        String content = "당신은 동현프로틴이라는 프로틴 회사의 어시스턴트 조비스입니다. 답변도 프로틴 주제로만 간결하고 짧게 답합니다. 무조건 우리 동현프로틴 회사의 제품에서만 추천해야합니다. 다음은 우리 회사 제품들 입니다.";
         String names = productService.findAll().stream().map(Product::getName).collect(Collectors.joining(", "));
         content+=names;
         content+=text;

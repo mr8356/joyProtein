@@ -1,5 +1,4 @@
 package com.codekat.joyprotein.controller;
-import java.util.List;
 
 import lombok.Data;
 

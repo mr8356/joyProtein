@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProteinOrderDTO extends ItemOrderDTO{
+public class AminoOrderDTO extends ItemOrderDTO{
     private int weight;
     private String tasteCode;
 }

@@ -54,6 +54,26 @@ public class ItemController {
         return "redirect:/orders";
     }
 
+    @PostMapping(value="/snack/order")
+    public String orderSnack(@ModelAttribute("memberId") Long memberId, SnackOrderDTO snackOrderDTO) throws Exception {
+        Item item = itemService.takeProtein(snackOrderDTO.getId(), snackOrderDTO.getQuantity(), snackOrderDTO.getTasteCode());
+        orderService.orderItem(memberId, item.getId(), snackOrderDTO.getQuantity());
+        return "redirect:/orders";
+    }
+
+    @PostMapping(value="/amino/order")
+    public String orderAmino(@ModelAttribute("memberId") Long memberId, AminoOrderDTO aminoOrderDTO) throws Exception {
+        Item item = itemService.takeAmino(aminoOrderDTO.getId(), aminoOrderDTO.getWeight(), aminoOrderDTO.getTasteCode());
+        orderService.orderItem(memberId, item.getId(), aminoOrderDTO.getQuantity());
+        return "redirect:/orders";
+    }
+    @PostMapping(value="/vitamin/order")
+    public String orderVitamin(@ModelAttribute("memberId") Long memberId, VitaminOrderDTO VitaminOrderDTO) throws Exception {
+        Item item = itemService.takeVitamin(VitaminOrderDTO.getId(), VitaminOrderDTO.getUnits());
+        orderService.orderItem(memberId, item.getId(), VitaminOrderDTO.getQuantity());
+        return "redirect:/orders";
+    }
+
 }
     
 

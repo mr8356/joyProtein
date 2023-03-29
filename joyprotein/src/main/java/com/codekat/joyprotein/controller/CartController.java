@@ -38,18 +38,34 @@ public class CartController {
 
     @GetMapping("/cart/order")
     public String orderFromCart(@ModelAttribute("memberId") Long memberId,Model model) throws Exception{
-        Long orderId = orderService.orderFromCart(memberId);
+        orderService.orderFromCart(memberId);
         return "redirect:/cart";
     }
 
-    @PostMapping("/cart/add")
+    @PostMapping("/cart/protein/add")
     public String addProteinToCart(@ModelAttribute("memberId") Long memberId, ProteinOrderDTO proteinDTO) throws Exception{
-        System.out.println("start\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("protein weight = " + proteinDTO.getWeight() +", tastcode = "+proteinDTO.getTasteCode());
         Item item = itemService.takeProtein(proteinDTO.getId(), proteinDTO.getWeight(), proteinDTO.getTasteCode());
         OrderItem orderItem = orderItemService.addItemToCart(memberId, item, proteinDTO.getQuantity());
-        // orderItem.setName(item.getProduct().getName()+ ") 맛: "+TasteRepository.getTaste(((Protein) item).getTasteCode()) + ", 용량: "+ ((Protein) item).getWeight() + "g");
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + orderItem.getName());
+        return "redirect:/cart";
+    }
+
+    @PostMapping(value="/cart/snack/add")
+    public String addSnackToCart(@ModelAttribute("memberId") Long memberId, SnackOrderDTO snackOrderDTO) throws Exception {
+        Item item = itemService.takeProtein(snackOrderDTO.getId(), snackOrderDTO.getQuantity(), snackOrderDTO.getTasteCode());
+        OrderItem orderItem = orderItemService.addItemToCart(memberId, item, snackOrderDTO.getQuantity());
+        return "redirect:/cart";
+    }
+
+    @PostMapping(value="/cart/amino/add")
+    public String addAminoToCart(@ModelAttribute("memberId") Long memberId, AminoOrderDTO aminoOrderDTO) throws Exception {
+        Item item = itemService.takeAmino(aminoOrderDTO.getId(), aminoOrderDTO.getWeight(), aminoOrderDTO.getTasteCode());
+        OrderItem orderItem = orderItemService.addItemToCart(memberId, item, aminoOrderDTO.getQuantity());
+        return "redirect:/cart";
+    }
+    @PostMapping(value="/cart/vitamin/add")
+    public String addVitaminToCart(@ModelAttribute("memberId") Long memberId, VitaminOrderDTO vitaminOrderDTO) throws Exception {
+        Item item = itemService.takeVitamin(vitaminOrderDTO.getId(), vitaminOrderDTO.getUnits());
+        OrderItem orderItem = orderItemService.addItemToCart(memberId, item, vitaminOrderDTO.getQuantity());
         return "redirect:/cart";
     }
 }

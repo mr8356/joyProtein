@@ -28,8 +28,8 @@ public class ItemRepository {
         return em.createQuery("select i from Item i",Item.class).getResultList();
     }
 
-    public List<Item> findProteins(){
-        return em.createQuery("select i from Item i where i.dtype = protein",Item.class).getResultList();
+    public List<Item> findByCategory(String type){
+        return em.createQuery("select i from Item i where i.dtype = :type",Item.class).setParameter("type", type).getResultList();
     }
     
 }
