@@ -1,7 +1,7 @@
 
 ###### Developer Donghyun Jo(조동현) - Writen on Full Stack
 
-인공지능 챗봇 기능이 포함된 프로틴 쇼핑몰
+인공지능 챗봇 기능이 포함된 프로틴 쇼핑몰 JoyProtein
 -----------
 
 엔티티들과 연관관계 설정 등등 구성을 내가 직접했다는것에 의의를 두자!
